@@ -23,5 +23,6 @@ class AppServiceProvider extends ServiceProvider
     {
         //
          $this->app->singleton(RegisterResponse::class, CustomRegisterResponse::class);
+         
     }
 }
