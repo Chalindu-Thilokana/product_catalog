@@ -79,7 +79,7 @@ class OrderService
 
         if ($user->usertype === 'admin') {
             
-            return Orders::with(['item_oder.product', 'user'])->get()->paginate(10);
+            return Orders::with(['item_oder.product', 'user'])->get();
         } else {
             
             
