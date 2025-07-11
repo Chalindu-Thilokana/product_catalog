@@ -30,6 +30,7 @@ php artisan key:generate
 # DB_PASSWORD=your_pass
 
 # 6. Run migrations and seeders
+import data base 
 php artisan migrate --seed
 
 # 7. Install frontend dependencies
