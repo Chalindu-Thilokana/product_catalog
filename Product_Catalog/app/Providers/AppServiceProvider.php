@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Providers;
+use Laravel\Fortify\Contracts\RegisterResponse;
+use App\Actions\Fortify\CustomRegisterResponse;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -20,5 +22,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
+         $this->app->singleton(RegisterResponse::class, CustomRegisterResponse::class);
     }
 }

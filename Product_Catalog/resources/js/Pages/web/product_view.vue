@@ -20,10 +20,7 @@ function showSuccessAlert() {
 
 const addToCart = (productId) => {
 
-   if (!props.auth?.user ) {
-    router.visit(route('login'))  // or just '/login'
-    return
-  }
+  
 
   
   router.post('/cart/add', { product_id: productId, quantity: 1 }, {
