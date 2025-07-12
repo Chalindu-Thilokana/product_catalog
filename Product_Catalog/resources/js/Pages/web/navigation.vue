@@ -38,7 +38,7 @@ function isActive(route) {
 
         <div class="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-8"  v-if="canLogin">
           <Link href="/" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 hover:border-indigo-500 hover:text-gray-700" 
-            :class="{ 'border-indigo-500 text-gray-900': isActive('/') }">Home</Link>
+            :class="{ 'border-indigo-500 text-gray-900': isActive('/') }"> Product</Link>
           <Link  v-if="$page.props.auth.user && $page.props.auth.user.usertype === 'user'" :href="route('Cart_index')" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 hover:border-indigo-500 hover:text-gray-700" 
             :class="{ 'border-indigo-500 text-gray-900': isActive('/about') }"> <svg xmlns="http://www.w3.org/2000/svg" 
          class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" 
@@ -92,9 +92,8 @@ function isActive(route) {
 
     <div v-show="open" class="sm:hidden" id="mobile-menu">
       <div class="pt-2 pb-3 space-y-1">
-        <Link href="/" class="block pl-3 pr-4 py-2 border-l-4 border-indigo-500 bg-indigo-50 text-indigo-700 text-base font-medium">Home</Link>
-        <Link href="/about" class="block pl-3 pr-4 py-2 border-l-4 border-transparent hover:border-indigo-500 hover:bg-indigo-50 hover:text-indigo-700 text-base font-medium">About</Link>
-        <Link href="/contact" class="block pl-3 pr-4 py-2 border-l-4 border-transparent hover:border-indigo-500 hover:bg-indigo-50 hover:text-indigo-700 text-base font-medium">Contact</Link>
+        <Link href="/" class="block pl-3 pr-4 py-2 border-l-4 border-indigo-500 bg-indigo-50 text-indigo-700 text-base font-medium">Product</Link>
+        
         <Link href="/login" class="block pl-3 pr-4 py-2 border-l-4 border-transparent hover:border-indigo-500 hover:bg-indigo-50 hover:text-indigo-700 text-base font-medium">Log in</Link>
       </div>
     </div>
