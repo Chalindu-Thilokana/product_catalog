@@ -1,18 +1,72 @@
 <script setup>
-import { ref, computed } from 'vue';
-import { router, Link } from '@inertiajs/vue3';
-import Swal from 'sweetalert2';
+import { ref, onMounted } from 'vue';
 import AppLayout from '@/Layouts/AppLayout.vue';
+import { Chart, registerables } from 'chart.js';
+
+Chart.register(...registerables);
 
 const props = defineProps({
-  orders: Array
-})
+  orders: Array,
+  orderCount: Number,
+});
+
+const chartRef = ref(null);
+
+onMounted(() => {
+  const ctx = chartRef.value.getContext('2d');
+
+  // Labels: order IDs formatted
+  const labels = props.orders.map(o => `#${String(o.id).padStart(3, '0')}`);
+
+  // Data: order totals
+  const dataPoints = props.orders.map(o => Number(o.total));
+
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [{
+        label: 'Order Totals',
+        data: dataPoints,
+        borderColor: 'rgba(75, 192, 192, 1)',
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        fill: true,
+        tension: 0.3,
+      }],
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'top' },
+        tooltip: { enabled: true },
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          title: { display: true, text: 'Total Amount ($)' },
+        },
+        x: {
+          title: { display: true, text: 'Order ID' },
+        },
+      },
+    },
+  });
+});
 </script>
 
 <template>
   <AppLayout>
+    <div class="max-w-[864px] mx-auto mt-6">
+      <h2 class="text-lg font-bold mb-2">Large Orders Line Chart</h2>
+      <div class="w-[864px] h-[576px] border p-2 rounded shadow">
+        <canvas ref="chartRef" width="864" height="576" class="w-full h-full"></canvas>
+      </div>
+    </div>
+
+    <!-- Orders list UI -->
     <div class="max-w-4xl mx-auto mt-10 bg-white shadow-md p-6 rounded-lg">
-      <h2 class="text-2xl font-semibold mb-6">coustomers Orders</h2>
+      <h2 class="text-2xl font-semibold mb-6">Customers Orders</h2>
 
       <div v-if="orders.length === 0" class="text-center text-gray-500 py-10">
         You have no orders yet.
@@ -33,7 +87,6 @@ const props = defineProps({
             </p>
           </div>
 
- 
           <table class="w-full text-sm text-left">
             <thead>
               <tr class="border-b border-gray-300 text-gray-700 bg-gray-100">

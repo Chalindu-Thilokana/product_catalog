@@ -79,7 +79,7 @@ class OrderService
 
         if ($user->usertype === 'admin') {
             
-            return Orders::with(['item_oder.product', 'user'])->get();
+           /* return*/  $orders = Orders::with(['item_oder.product', 'user'])->get();
         } else {
             
             
@@ -87,5 +87,10 @@ class OrderService
                          ->where('user_id', $user->id)
                          ->get();
         }
+
+        return [
+        'orders' => $orders,
+        'orderCount' => $orders->count(),
+    ];
     }
 }

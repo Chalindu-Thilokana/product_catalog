@@ -110,6 +110,12 @@ class OdersController extends Controller
      public function show()
     {
         $orders = $this->service->getOrdersForUser();
-        return Inertia::render('admin/oders/oder', compact('orders'));
+       // return Inertia::render('admin/oders/oder', compact('orders'));
+           //return Inertia::render('admin/oders/oder', compact('orders', 'orderCount'));
+
+ return Inertia::render('admin/oders/oder', [
+        'orders' => $orders['orders'],
+        'orderCount' => $orders['orderCount'],
+    ]);
     }
 }

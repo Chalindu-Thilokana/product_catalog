@@ -31,9 +31,8 @@ function checkout() {
   router.post('/checkout');
 }
 
-function order() {
-  router.post('/orders.index');
-}
+
+
 </script>
 
 <template>
