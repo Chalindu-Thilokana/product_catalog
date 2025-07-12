@@ -59,7 +59,7 @@ onMounted(() => {
 <template>
   <AppLayout>
     <div class="max-w-[864px] mx-auto mt-6">
-      <h2 class="text-lg font-bold mb-2">Large Orders Line Chart</h2>
+      <h2 class="text-lg font-bold mb-2">coustermer Orders Line Chart</h2>
       <div class="w-[864px] h-[576px] border p-2 rounded shadow">
         <canvas ref="chartRef" width="864" height="576" class="w-full h-full"></canvas>
       </div>
