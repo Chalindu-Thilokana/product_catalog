@@ -3,7 +3,8 @@ Simple E-Commerce Product Catalog
 
  Requirements
 PHP 8.1+
-
+Backend: PHP Laravel ( version 10)
+frontend framework (Vue.js,Inertia)
 Composer
 
 Node.js & npm
