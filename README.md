@@ -24,22 +24,26 @@ cp .env.example .env
 # 4. Generate application key
 php artisan key:generate
 
-# 5. Set your database credentials in .env file
+# 5. Set your database credentials in .env file 
 # DB_DATABASE=your_db
 # DB_USERNAME=your_user
 # DB_PASSWORD=your_pass
 
-# 6. Run migrations and seeders
+# 6. Import database or Run migrations and seeders
 php artisan migrate --seed
 
-# 7. Install frontend dependencies
+# 7. Create storage symbolic link (for file uploads)
+php artisan storage:link
+
+# 8. Install frontend dependencies
 npm install
 
-# 8. Build frontend assets
+# 9. Build frontend assets
 npm run dev
 
-# 9. Start the Laravel server
+# 10. Start the Laravel server
 php artisan serve
+
 
 
 👤 Admin Login Credentials
