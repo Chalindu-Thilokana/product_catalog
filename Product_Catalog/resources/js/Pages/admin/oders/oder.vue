@@ -19,7 +19,8 @@ onMounted(() => {
   const labels = props.orders.map(o => `#${String(o.id).padStart(3, '0')}`);
 
   // Data: order totals
-  const dataPoints = props.orders.map(o => Number(o.total));
+  const dataPoints = props.orders.map(o =>
+  o.item_oder.reduce((sum, item) => sum + item.quantity, 0));
 
   new Chart(ctx, {
     type: 'line',
@@ -44,7 +45,7 @@ onMounted(() => {
       scales: {
         y: {
           beginAtZero: true,
-          title: { display: true, text: 'Total Amount ($)' },
+          title: { display: true, text: 'Total proudects in per one oder' },
         },
         x: {
           title: { display: true, text: 'Order ID' },
