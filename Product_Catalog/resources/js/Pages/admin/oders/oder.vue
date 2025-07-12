@@ -85,6 +85,9 @@ onMounted(() => {
             <p class="text-sm text-gray-600">
               Total Amount: <span class="font-semibold text-black">${{ Number(order.total).toFixed(2) }}</span>
             </p>
+               <p class="text-sm text-gray-600">
+              coustermer name: <span class="font-semibold text-black">${{ Number(order.user).toFixed(2) }}</span>
+            </p>
           </div>
 
           <table class="w-full text-sm text-left">
